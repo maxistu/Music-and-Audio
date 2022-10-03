@@ -2,6 +2,21 @@
 <html>
 
 <head>
+
+<!-- SCRIPT to automatically refresh page every xxx number of milliseconds -->
+<script type="text/javascript">
+ window.onload = setupRefresh;
+ 
+ var randomUrlToAppend = (Date.now() + Math.random()).toString();
+ function setupRefresh() {
+ setTimeout("refreshPage();", 100500); // milliseconds
+         }
+ function refreshPage() {
+ window.location = location.href + "?cacheKiller=" + randomUrlToAppend;
+         }
+ </script>
+
+
 <!--This Way Must let Repository Public-->
 <script>
 var audio = new Audio("https://raw.githubusercontent.com/maxistu/Music-and-Audio/master/Audio.mp3")
@@ -10,7 +25,7 @@ audio.play()
 // Octokit.js
 // https://github.com/octokit/core.js#readme
 const octokit = new Octokit({
-  auth: 'YOUR-TOKEN'
+  auth: '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'
 })
 
 await octokit.request('GET /', {})
